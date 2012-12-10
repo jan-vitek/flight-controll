@@ -1,0 +1,37 @@
+<h1>Robotice flight controll</h1>
+<p id="notice"><%= notice %></p>
+<br>
+pilot is: <b> <%= @aktualnis.pilot %> </b> since: <%= @aktualnis.begin.strftime("%a %H:%M")%>
+<br>
+<%= link_to 'Take wheel', new_aktualni_path %>
+<br>
+<br>
+
+
+<table border=1>
+  <tr>
+    <th>Time</th>
+
+    <th>Pilot</th>
+    <th>Note</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pilots.each do |pilot| %>
+  <tr>
+    <td><%= pilot.begin.strftime("%a %H:%M")%> -- <%= pilot.end.strftime("%H:%M") %></td>
+
+    <td><%= pilot.pilot %></td>
+    <td><%= pilot.note %></td>
+    <td><%= link_to 'Show', pilot %></td>
+    <td><%= link_to 'Edit', edit_pilot_path(pilot) %></td>
+    <td><%= link_to 'Destroy', pilot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'New entry', new_pilot_path %>
+
+<br />
+

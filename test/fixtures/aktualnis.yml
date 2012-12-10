@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  begin: 2012-12-09 01:11:25
+  pilot: MyString
+
+two:
+  begin: 2012-12-09 01:11:25
+  pilot: MyString

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Begin:</b>
+  <%= @pilot.begin %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @pilot.end %>
+</p>
+
+<p>
+  <b>Pilot:</b>
+  <%= @pilot.pilot %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @pilot.note %>
+</p>
+
+
+<%= link_to 'Edit', edit_pilot_path(@pilot) %> |
+<%= link_to 'Back', pilots_path %>

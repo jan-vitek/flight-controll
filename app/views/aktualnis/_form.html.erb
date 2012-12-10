@@ -1,0 +1,25 @@
+<%= form_for(@aktualni) do |f| %>
+  <% if @aktualni.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aktualni.errors.count, "error") %> prohibited this aktualni from being saved:</h2>
+
+      <ul>
+      <% @aktualni.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :begin %><br />
+    <%= f.datetime_select :begin %>
+  </div>
+  <div class="field">
+    <%= f.label :pilot %><br />
+    <%= f.text_field :pilot %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
