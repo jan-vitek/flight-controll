@@ -3,7 +3,7 @@ class PilotsController < ApplicationController
   # GET /pilots.json
   def index
     @pilots = Pilot.order('begin')
-    @aktualnis= Aktualni.last
+#    @aktualnis= Aktualni.last
 
     respond_to do |format|
       format.html # index.html.erb
