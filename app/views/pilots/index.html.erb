@@ -21,7 +21,7 @@ pilot is: <b> <%= @aktualnis.pilot %> </b> since: <%= @aktualnis.begin.strftime(
 
 <% @pilots.each do |pilot| %>
   <tr>
-    <td><%= pilot.begin.strftime("%a %H:%M")%> -- <%= pilot.end.strftime("%H:%M") %></td>
+    <td><%= pilot.begin.strftime("%a %d.%m. %H:%M")%> -- <%= pilot.end.strftime("%H:%M") %></td>
 
     <td><%= pilot.pilot %></td>
     <td><%= pilot.note %></td>
