@@ -1,7 +1,7 @@
 <h1>Robotice flight controll</h1>
 <p id="notice"><%= notice %></p>
 <br>
-pilot is: <b> <%= @aktualnis.pilot %> </b> since: <%= @aktualnis.begin.strftime("%a %H:%M")%>
+pilot is: <b> <%= @aktualnis.pilot %> </b> since: <%= @aktualnis.begin.strftime("%a %d.%m. %H:%M")%>
 <br>
 <%= link_to 'Take wheel', new_aktualni_path %>
 <br>
