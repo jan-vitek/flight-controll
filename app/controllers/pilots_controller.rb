@@ -2,7 +2,7 @@ class PilotsController < ApplicationController
   # GET /pilots
   # GET /pilots.json
   def index
-    @pilots = Pilot.order('begin')
+    @pilots = Pilot.where("begin < ?", Date.yesterday).order('begin')
     @aktualnis= Aktualni.last
 
     respond_to do |format|
