@@ -7,7 +7,7 @@ end
 json.pilots @pilots do |json, pilt|
   json.pilot pilt.pilot
   json.begin pilt.begin.to_i
-  json.end pilt.end
+  json.end pilt.end.to_i
   json.note pilt.note
   json.id pilt.id
 end
