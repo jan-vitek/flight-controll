@@ -2,7 +2,9 @@ Pilotaz::Application.routes.draw do
   resources :aktualnis
 
 
-  get "home/index"
+  get "pilots/index"
+
+#  get "/pilots/export" => 'pilots#export'
 
   resources :pilots
 

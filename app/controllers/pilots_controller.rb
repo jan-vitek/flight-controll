@@ -2,7 +2,7 @@ class PilotsController < ApplicationController
   # GET /pilots
   # GET /pilots.json
   def index
-    @pilots = Pilot.where("begin > ?", Date.yesterday).order('begin')
+    @pilots = Pilot.order('begin')
     @aktualnis= Aktualni.last
 
     respond_to do |format|
@@ -10,6 +10,35 @@ class PilotsController < ApplicationController
       format.json { render json: @pilots }
     end
   end
+
+  # GET /export
+  # GET /export.json
+  def export
+    @pilots = Pilot.order('begin')
+    @aktualnis= Aktualni.last
+
+    respond_to do |format|
+      format.html
+      format.json {render json: {:current => @aktualnis, :pilots => @pilots}}
+    end
+  end
+
+  def export1
+    @pilots = Pilot.order('begin')
+    @aktualnis= Aktualni.last
+
+
+ #   Jbuilder.encode do |json|
+ # 	json.(@aktualnis, :pilot, :begin)
+
+ # 	json.author do
+ #   		json.pilot @pilots.pilot
+ #   		json.begin @message.begin
+ # 	end
+
+ #   end
+  end
+
 
   # GET /pilots/1
   # GET /pilots/1.json
@@ -42,9 +71,13 @@ class PilotsController < ApplicationController
   # POST /pilots.json
   def create
     @pilot = Pilot.new(params[:pilot])
-
     respond_to do |format|
+  #   if @pilot.save 
+   
       if @pilot.save
+        if @pilot.end < @pilot.begin
+	  @pilot.update_attributes(:end =>  @pilot.end + 1.days)
+	end
         format.html { redirect_to pilots_path, notice: 'Pilot was successfully created.' }
         format.json { render json: @pilot, status: :created, location: @pilot }
       else
