@@ -13,17 +13,17 @@ class PilotsController < ApplicationController
 
   # GET /export
   # GET /export.json
+#  def export1
+#    @pilots = Pilot.order('begin')
+#    @aktualnis= Aktualni.last
+
+#    respond_to do |format|
+#      format.html
+#      format.json {render json: {:current => @aktualnis, :pilots => @pilots}}
+#    end
+#  end
+
   def export
-    @pilots = Pilot.order('begin')
-    @aktualnis= Aktualni.last
-
-    respond_to do |format|
-      format.html
-      format.json {render json: {:current => @aktualnis, :pilots => @pilots}}
-    end
-  end
-
-  def export1
     @pilots = Pilot.order('begin')
     @aktualnis= Aktualni.last
 
