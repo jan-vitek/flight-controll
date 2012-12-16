@@ -75,6 +75,7 @@ class PilotsController < ApplicationController
   #   if @pilot.save 
    
       if @pilot.save
+	@pilot.update_attributes(:end => @pilot.end.change(:year => @pilot.begin.year, :month => @pilot.begin.month, :day => @pilot.begin.day)
         if @pilot.end < @pilot.begin
 	  @pilot.update_attributes(:end =>  @pilot.end + 1.days)
 	end
