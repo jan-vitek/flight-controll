@@ -5,6 +5,7 @@ Pilotaz::Application.routes.draw do
   get "pilots/index"
 
   get "/export" => 'pilots#export'
+  get "/pilots/export" => 'pilots#export'  
 
   resources :pilots
 
